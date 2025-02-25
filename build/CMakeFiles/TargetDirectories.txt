@@ -1,0 +1,2 @@
+C:/Users/HP/Desktop/Raylib-CPP-Starter-Template-for-VSCODE-V2-main/build/CMakeFiles/edit_cache.dir
+C:/Users/HP/Desktop/Raylib-CPP-Starter-Template-for-VSCODE-V2-main/build/CMakeFiles/rebuild_cache.dir
