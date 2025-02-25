@@ -1,62 +1,10 @@
 #include <raylib.h>
 #include "ball.h"
+#include "paddle.h"
+#include "cpu.h"
 
 int player_score = 0;
 int cpu_score = 0;
-
-class Paddle
-{
-    protected:
-    void LimitMovement(){
-        if(y <= 0){
-            y = 0;
-        }
-
-        if(y + height >= GetScreenHeight()){
-            y = GetScreenHeight() - height;
-        }
-    }
-    public:
-    float width, height;
-    float x, y;
-    int speed;
-
-    void draw(){
-        DrawRectangleRounded(Rectangle{x, y, width, height}, 0.8, 0, WHITE );
-    }
-
-    void Update(){
-        if(IsKeyDown(KEY_LEFT_SHIFT)){
-            speed = 15;
-        }
-        else speed = 7;
-        if(IsKeyDown(KEY_UP)){
-            y -= speed;
-        }
-
-        if(IsKeyDown(KEY_DOWN)){
-            y += speed;
-        }
-
-        LimitMovement();
-    }
-};
-
-class CpuPaddle: public Paddle
-{
-    public:
-
-    void Update(int ballY){
-        if(y + height / 2> ballY){
-            y -= speed;
-        }
-        if(y + height / 2<= ballY){
-            y += speed;
-        }
-         LimitMovement();
-    }
-};
-
 
 int main(){
     //Initialize Window
@@ -68,7 +16,7 @@ int main(){
     Color darkblue = {20, 120, 133,255};
     Color darkblue2 = {20, 120, 115, 255};
     Color DarkGreen = {255, 255, 255, 70};
-    // Color pink = {252, 74, 146, 255};
+
     //Ball property
     Ball ball;
     ball.radius = 15;
